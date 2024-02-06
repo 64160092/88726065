@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ใบสมัครงาน</title>
+</head>
+<body>
+  <h2>ใบสมัครงาน</h2>
+  <form action="/submit" method="post">
+    <table>
+      <!-- ข้างบน -->
+      <tr>
+        <td><label for="name1">ชื่อ*</label></td>
+        <td><label for="name2">นามสกุล*</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="name1" name="name1" required></td>
+        <td><input type="text" id="name2" name="name2" required></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td><label for="email">อีเมล*</label></td>
+      </tr>
+      <tr>
+        <td><textarea id="email" name="email" rows="1" cols="46" required></textarea></td>
+      </tr>
+      <tr>
+        <td><label for="web">เว็บไซต์ผลงาน</label></td>
+      </tr>
+      <tr>
+        <td><textarea id="web" name="web" rows="1" cols="46" required></textarea></td>
+      </tr>
+      <tr>
+        <td><label for="position">ตำแหน่งที่ต้องการสมัคร*</label></td>
+      </tr>
+      <tr>
+        <td><textarea id="position" name="position" rows="1" cols="46" required></textarea></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td><label for="money">เงินเดือนที่ต้องการ</label></td>
+        <td><label for="start">จะเริ่มทำงานได้เมื่อไหร่</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="money" name="money" required></td>
+        <td><input type="text" id="start" name="start" required></td>
+      </tr>
+      <tr>
+        <td><label for="number">โทรศัพท์มือถือ*</label></td>
+        <td><label for="numberh">โทรศัพท์บ้าน</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="number" name="number" required></td>
+        <td><input type="text" id="numberh" name="numberh" required></td>
+      </tr>
+    </table>
+    <table>
+      <!-- ข้างล่าง -->
+      <tr>
+        <td><label for="move">คุณสะดวกที่จะย้ายที่อยู่หรือไม่</label></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="moveYes" name="move" value="yes" required>
+          <label for="moveYes">สะดวก</label>
+          <input type="radio" id="moveNo" name="move" value="no" required>
+          <label for="moveNo">ไม่สะดวก</label>
+          <input type="radio" id="moveNotSure" name="move" value="not_sure" required>
+          <label for="moveNotSure">ไม่แน่ใจ</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="work">ลักษณะงานที่ทำในที่ทำงานล่าสุด</label></td>
+      </tr>
+      <tr>
+        <td><textarea id="work" name="work" rows="1" cols="46" required></textarea></td>
+      </tr>
+      <tr>
+        <td><label for="question">คำถาม</label></td>
+      </tr>
+      <tr>
+        <td><textarea id="question" name="question" rows="7" cols="46" required></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center">
+          <button type="submit">ส่งใบสมัคร</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
