@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dog Images</title>
+</head>
+<body>
+<h1>My Dog Images</h1>
+<div id="dogImages"></div>
+<script>
+fetch('/images/search')
+  .then(response => response.json())
+  .then(data => {
+    const dogImagesDiv = document.getElementById('dogImages');
+    if (data.length === 0) {
+      dogImagesDiv.textContent = 'ไม่พบรูปของท่าน';
+    } else {
+      data.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image.url;
+        dogImagesDiv.appendChild(img);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', () => deleteImage(image.id));
+        dogImagesDiv.appendChild(deleteButton);
+      });
+    }
+  });
+
+function deleteImage(imageId) {
+  fetch(`/images/${imageId}`, { method: 'DELETE' })
+    .then(response => {
+      if (response.ok) {
+        location.reload();
+      }
+    });
+}
+</script>
+</body>
+</html>
