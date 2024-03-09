@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>JavaScript</title>
+</head>
+<body>
+<h1>เกมส์ทายตัวเลข</h1>
+<p>ทายตัวเลขระหว่าง 1 ถึง 188</p>
+<input type="text" id="guessField" placeholder="Guess a number" /> 
+<input type="button" id="guessBtn" value="Submit guess" />
+<input type="button" id="btnRestart" value="Restart" />
+<div id="result"></div>
+<div id="summary"></div> 
+<script>
+const randomNumber = Math.floor(Math.random() * 188) + 1; 
+let numGuess = 0;
+
+document.getElementById("guessBtn").addEventListener("click", function () {
+  const guessField = parseInt(document.getElementById("guessField").value);
+  
+  if (isNaN(guessField) || guessField === "") {
+    document.getElementById("result").innerHTML = "Please enter a valid number.";
+    document.getElementById("guessField").select();
+  } else {
+    if (guessField > randomNumber) {
+      document.getElementById("result").innerHTML = "Too high!";
+    } else if (guessField < randomNumber) {
+      document.getElementById("result").innerHTML = "Too low!";
+    } else {
+      document.getElementById("result").innerHTML = "Congratulations! You guessed the correct number!";
+    }
+    document.getElementById("guessField").select();
+  }
+  
+  numGuess++;
+  document.getElementById("summary").innerHTML = "You've guessed " + numGuess + " times.";
+});
+
+document.getElementById("btnRestart").addEventListener("click", function () {
+  location.reload();
+});
+</script>
+</body>
+</html>
